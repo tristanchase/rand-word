@@ -64,13 +64,13 @@ function __main_script__ {
 
 _word_file="/usr/share/dict/words"
 
-# shuf -n1 "${_word_file}"
 awk -v word_length="${1:-}" 'length ($0) == word_length' "${_word_file}" | less -F
 
 # Check to see if $_word_file is installed
 # Check that word_length is a number 0 < word_length < wc -L +1
 # Options:
-# 	Pick a random word
+# 	Pick a random word from $_word_file (default)
+	shuf -n1 "${_word_file}"
 # 	Pick a random word of length $word_length
 # 	Generate a list of words of length $word_length
 #	Generate a list of length $list_length
