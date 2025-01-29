@@ -67,6 +67,8 @@ _word_file="/usr/share/dict/words"
 # Check to see if $_word_file is installed
 if [[ ! -e  "${_word_file}" ]]; then
        printf "%b\n" "The file "${_word_file}" does not exist."
+       printf "%b\n"
+       __usage__
        exit 2
 fi
 # Offer option to install $_word_file from a list via __chooser__
